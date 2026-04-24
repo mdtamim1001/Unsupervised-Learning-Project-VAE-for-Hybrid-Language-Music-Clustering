@@ -1,0 +1,89 @@
+=== Training DeepVAE  latent_dim=8 ===
+
+  Epoch  10  Loss: 0.0106
+  Epoch  20  Loss: 0.0064
+  Epoch  30  Loss: 0.0058
+  Epoch  40  Loss: 0.0055
+  Epoch  50  Loss: 0.0054
+
+DeepVAE latent_dim=8
+
+  Silhouette:      0.65632  (higher better)
+  Calinski-Harabasz: 78312.1  (higher better)
+  Davies-Bouldin:  0.55171  (lower  better)
+
+
+=== Training DeepVAE  latent_dim=16 ===
+
+  Epoch  10  Loss: 0.0123
+  Epoch  20  Loss: 0.0073
+  Epoch  30  Loss: 0.0059
+  Epoch  40  Loss: 0.0054
+  Epoch  50  Loss: 0.0052
+
+DeepVAE latent_dim=16
+
+  Silhouette:      0.63533  (higher better)
+  Calinski-Harabasz: 16063.8  (higher better)
+  Davies-Bouldin:  1.18614  (lower  better)
+
+
+=== Training DeepVAE  latent_dim=32 ===
+
+
+  Epoch  10  Loss: 0.0120
+  Epoch  20  Loss: 0.0070
+  Epoch  30  Loss: 0.0055
+  Epoch  40  Loss: 0.0052
+  Epoch  50  Loss: 0.0049
+
+DeepVAE latent_dim=32
+
+  Silhouette:      0.29091  (higher better)
+  Calinski-Harabasz: 50274.0  (higher better)
+  Davies-Bouldin:  1.18292  (lower  better)
+
+
+
+===============================================================
+PCA (8 components, k=8)
+  Silhouette:      0.30036  (higher better)
+  Calinski-Harabasz: 5531.6  (higher better)
+  Davies-Bouldin:  1.12190  (lower  better)
+
+
+==================================================================
+
+
+
+
+=================================================================
+TOP 15 TF-IDF WORDS PER CLUSTER  (DeepVAE dim=8)
+=================================================================
+
+Cluster 0  (867 songs)
+   th,  the,   the,  he ,  the ,   the ,   i ,  nd ,  ng ,  ing,  ing ,   an,  and,  in ,   yo
+
+Cluster 1  (4,102 songs)
+  ার ,  রে ,   আম,  না ,  ের ,  মার,   না,  মি ,  লে ,  ায় ,  মার ,   তো,  নে ,   না ,  আমা
+
+Cluster 2  (1,928 songs)
+   th,   yo,   you,  you,   i ,   you ,  you ,  ou ,  the,   the,  he ,  me ,  ng ,  the ,   the 
+
+Cluster 3  (258 songs)
+   th,  the,   the,  he ,  the ,   the ,  nd ,   an,  ed ,  and,   of,  and ,  of ,   of ,   to
+
+Cluster 4  (1,950 songs)
+   th,   i ,  the,   the,   yo,   you,  you,  he ,  you ,   you ,  the ,  ou ,   the ,  ng ,  nd 
+
+
+=================================================================
+CLUSTER SIZE SUMMARY
+=================================================================
+  Cluster 0:    867 songs  (9.5%)  ████
+  Cluster 1:  4,102 songs  (45.1%)  ██████████████████████
+  Cluster 2:  1,928 songs  (21.2%)  ██████████
+  Cluster 3:    258 songs  (2.8%)  █
+  Cluster 4:  1,950 songs  (21.4%)  ██████████
+
+

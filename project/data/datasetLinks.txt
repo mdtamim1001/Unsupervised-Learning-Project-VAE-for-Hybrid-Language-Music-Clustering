@@ -1,0 +1,5 @@
+# English lyrics = https://drive.google.com/file/d/1caXAiTuKA6akQtQNGrNiunS8kQbrdSDy/view?usp=sharing
+
+# Bangla_lyrics  = /kaggle/input/datasets/shakirulhasan/bangla-song-lyrics/BanglaSongLyrics.csv,
+
+# Audio music   = /kaggle/input/datasets/undefinenull/million-song-dataset-spotify-lastfm/MP3-Example,

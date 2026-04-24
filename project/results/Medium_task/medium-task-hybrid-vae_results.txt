@@ -1,0 +1,38 @@
+=======================================================================================
+
+── K-Means (k=15) ──
+  Clusters          : 15
+  Silhouette Score  : 0.10914   (↑ better, range −1 to 1)
+  Davies-Bouldin    : 1.68308   (↓ better, min 0)
+  Calinski-Harabasz : 115.56    (↑ better)
+  ARI (genre)       : 0.04924   (↑ better, 1=perfect)
+
+── Agglomerative ward (k=15) ──
+  Clusters          : 15
+  Silhouette Score  : 0.06676   (↑ better, range −1 to 1)
+  Davies-Bouldin    : 1.90490   (↓ better, min 0)
+  Calinski-Harabasz : 96.09    (↑ better)
+  ARI (genre)       : 0.04742   (↑ better, 1=perfect)
+DBSCAN (eps=4.245): only 1 cluster(s) found — skipping metrics.
+
+── PCA + K-Means (baseline) ──
+  Clusters          : 15
+  Silhouette Score  : 0.00716   (↑ better, range −1 to 1)
+  Davies-Bouldin    : 2.96530   (↓ better, min 0)
+  Calinski-Harabasz : 22.54    (↑ better)
+  ARI (genre)       : 0.04311   (↑ better, 1=perfect)
+
+====== Clustering Metrics Summary ======
+                           Clusters  Silhouette  Davies-Bouldin  Calinski-Harabasz    ARI
+...
+  Silhouette        (↑) : K-Means (k=15)
+  Davies-Bouldin    (↓) : K-Means (k=15)
+  Calinski-Harabasz (↑) : K-Means (k=15)
+  ARI               (↑) : K-Means (k=15)
+
+
+=============================================================================================================
+
+
+
+
