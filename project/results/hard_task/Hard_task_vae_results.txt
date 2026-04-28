@@ -3,96 +3,104 @@
 =================================================================
 
 [1/7] Loading raw data …
-  English lyrics loaded : 500 rows  |  genres: ['rb' 'rock' 'rap' 'misc' 'pop' 'country']
-  Bangla  lyrics loaded : 500 rows  |  genres: ['ব্যান্ড' 'আধুনিক' 'ছায়াছবি' 'রবীন্দ্র সংগীত' 'ইসলামী গান' 'নাটক'
- 'নজরুল গীতি' 'বাউল' 'পপ সঙ্গীত' 'বিবিধ' 'পল্লীগীতি' 'দেশাত্মবোধক গান'
- 'লালন' 'ভক্তিমূলক গান' 'র\u200d্যাপ' 'জীবনমুখী গান' 'Uncategorized'
- 'ছড়াগান' 'ভাটিয়ালি']
-  Extracting MFCC — genre: Blues         (60 files)  [7.6s]
-  Extracting MFCC — genre: Country       (60 files)  [7.7s]
-  Extracting MFCC — genre: Electronic    (60 files)  [7.8s]
-  Extracting MFCC — genre: Folk          (60 files)  [7.8s]
-  Extracting MFCC — genre: Jazz          (60 files)  [7.8s]
-  Extracting MFCC — genre: Latin         (60 files)  [7.6s]
-  Extracting MFCC — genre: Metal         (60 files)  [7.7s]
-  Extracting MFCC — genre: New Age       (60 files)  [7.7s]
-  Extracting MFCC — genre: Pop           (60 files)  [8.0s]
-  Extracting MFCC — genre: Punk          (60 files)  [7.8s]
-  Extracting MFCC — genre: Rap           (60 files)  [7.8s]
-  Extracting MFCC — genre: Reggae        (60 files)  [7.8s]
-  Extracting MFCC — genre: RnB           (60 files)  [8.0s]
-  Extracting MFCC — genre: Rock          (60 files)  [7.9s]
-  Extracting MFCC — genre: World         (60 files)  [8.0s]
-  Audio features ready  : 900 tracks  |  genres: ['Blues' 'Country' 'Electronic' 'Folk' 'Jazz' 'Latin' 'Metal' 'New Age'
- 'Pop' 'Punk' 'Rap' 'Reggae' 'RnB' 'Rock' 'World']
+
+English Lyrics Distribution:
+genre_label
+pop     900
+rap     900
+rock    900
+Name: count, dtype: int64
+
+Bangla Lyrics Distribution:
+genre_label
+আধুনিক            1027
+রবীন্দ্র সংগীত     780
+Name: count, dtype: int64
+Extracting MFCC — Pop    (100 files) [13.5s]
+Extracting MFCC — Rap    (100 files) [13.8s]
+Extracting MFCC — Rock   (100 files) [13.5s]
+
+Audio Distribution:
+genre
+pop     100
+rap     100
+rock    100
+Name: count, dtype: int64
 
 [2/7] Assembling fused dataset …
+  English pool [pop]: 900 rows
+  English pool [rap]: 900 rows
+  English pool [rock]: 900 rows
+  Bangla pool: 1807 rows
 
-  Fused dataset: 900 rows
-  Genre distribution:
-genre
-Blues         60
-Country       60
-Electronic    60
-Folk          60
-Jazz          60
-Latin         60
-Metal         60
-New Age       60
-Pop           60
-Punk          60
-Rap           60
-Reggae        60
-Rnb           60
-Rock          60
-World         60
-  Language distribution:
+Fused dataset: 300 rows
+
+Audio Genre Distribution:
+audio_genre
+pop     100
+rap     100
+rock    100
+Name: count, dtype: int64
+
+Lyrics Genre Distribution:
+lyrics_genre
+pop               70
+rap               70
+rock              69
+আধুনিক            49
+রবীন্দ্র সংগীত    42
+Name: count, dtype: int64
+
+Language Distribution:
 language
-english    450
-bangla     450
+english    209
+bangla      91
+Name: count, dtype: int64
 
 [3/7] Extracting features …
-  Building lyrics features (char 2-4 ngram TF-IDF → SVD) …
-  TF-IDF SVD: 8000 vocab → 100d (explained var: 57.19%)
-  Audio features  : (900, 40)
-  Lyrics features : (900, 100)
-  Genre one-hot   : (900, 15)  classes=['Blues', 'Country', 'Electronic', 'Folk', 'Jazz', 'Latin', 'Metal', 'New Age', 'Pop', 'Punk', 'Rap', 'Reggae', 'Rnb', 'Rock', 'World']
+  Building per-language lyrics features …
+  [english] 209 rows, 6000 vocab → 15d (var: 16.77%)
+  [bangla] 91 rows, 6000 vocab → 15d (var: 24.65%)
+  Lyrics features : (300, 30)
+  Audio features  : (300, 40)
+  Lyrics features : (300, 30)
+  Genre one-hot   : (300, 3)  classes=['pop', 'rap', 'rock']
 
-  Final input dim : 140   N_clusters : 15
+  Final input dim : 70   N_clusters : 3
 
 [4/7] Training models …
   (A) Vanilla VAE (β=1) …
-    Epoch  50/250  loss=15.0786
-    Epoch 100/250  loss=15.9382
-    Epoch 150/250  loss=15.6025
-    Epoch 200/250  loss=15.8431
-    Epoch 250/250  loss=15.7998
+    Epoch  50/250  loss=9.8716
+    Epoch 100/250  loss=10.1655
+    Epoch 150/250  loss=9.9948
+    Epoch 200/250  loss=9.8869
+    Epoch 250/250  loss=10.6973
   (B) Beta-VAE (β=4) …
-    Epoch  50/250  loss=15.1276
-    Epoch 100/250  loss=14.8469
-    Epoch 150/250  loss=14.8493
-    Epoch 200/250  loss=15.1276
-    Epoch 250/250  loss=15.0730
+    Epoch  50/250  loss=9.9376
+    Epoch 100/250  loss=10.0435
+    Epoch 150/250  loss=9.9227
+    Epoch 200/250  loss=9.9095
+    Epoch 250/250  loss=9.8522
   (C) CVAE (conditioned on genre) …
-    Epoch  50/250  loss=15.7768
-    Epoch 100/250  loss=16.1931
-    Epoch 150/250  loss=15.6219
-    Epoch 200/250  loss=15.2942
-    Epoch 250/250  loss=15.7221
+    Epoch  50/250  loss=10.7653
+    Epoch 100/250  loss=10.5552
+    Epoch 150/250  loss=10.3248
+    Epoch 200/250  loss=10.3097
+    Epoch 250/250  loss=10.4728
   (D) Shallow Autoencoder …
 
 [5/7] Computing baselines …
 
 [6/7] Evaluating clustering …
-  PCA + K-Means                     Sil=+0.039  NMI=0.094  ARI=0.020  Purity=0.168
-  AE + K-Means                      Sil=+0.266  NMI=0.095  ARI=0.020  Purity=0.167
-  Direct MFCC + K-Means             Sil=+0.014  NMI=0.105  ARI=0.031  Purity=0.183
-  VAE + K-Means                     Sil=+0.391  NMI=0.073  ARI=0.010  Purity=0.146
-  Beta-VAE + K-Means                Sil=+0.353  NMI=0.068  ARI=0.004  Purity=0.140
-  CVAE + K-Means                    Sil=+0.333  NMI=0.075  ARI=0.008  Purity=0.140
+  PCA + K-Means                     Sil=+0.156  NMI=0.048  ARI=0.045  Purity=0.450
+  AE + K-Means                      Sil=+0.330  NMI=0.005  ARI=0.001  Purity=0.367
+  Direct MFCC + K-Means             Sil=+0.096  NMI=0.047  ARI=0.045  Purity=0.450
+  VAE + K-Means                     Sil=+0.503  NMI=0.046  ARI=0.028  Purity=0.433
+  Beta-VAE + K-Means                Sil=+0.301  NMI=0.002  ARI=-0.004  Purity=0.360
+  CVAE + K-Means                    Sil=+0.423  NMI=0.009  ARI=-0.000  Purity=0.377
 
 [7/7] t-SNE projections …
-  Palette built for 15 genres: ['Blues', 'Country', 'Electronic', 'Folk', 'Jazz', 'Latin', 'Metal', 'New Age', 'Pop', 'Punk', 'Rap', 'Reggae', 'Rnb', 'Rock', 'World']
+  Palette built for 3 genres: ['pop', 'rap', 'rock']
   fig1_latent_spaces.png saved
   fig2_metrics_distributions.png saved
   fig3_detailed_analysis.png saved
@@ -102,10 +110,16 @@ bangla     450
 =================================================================
 Method                                 Sil     NMI     ARI  Purity
 -----------------------------------------------------------------
-PCA + K-Means                        0.039   0.094   0.020   0.168
-AE + K-Means                         0.266   0.095   0.020   0.167
-Direct MFCC + K-Means                0.014   0.105   0.031   0.183 ◄
-VAE + K-Means                        0.391   0.073   0.010   0.146
-Beta-VAE + K-Means                   0.353   0.068   0.004   0.140
+PCA + K-Means                        0.156   0.048   0.045   0.450 ◄
+AE + K-Means                         0.330   0.005   0.001   0.367
+Direct MFCC + K-Means                0.096   0.047   0.045   0.450
+VAE + K-Means                        0.503   0.046   0.028   0.433
+Beta-VAE + K-Means                   0.301   0.002  -0.004   0.360
+CVAE + K-Means                       0.423   0.009  -0.000   0.377
+=================================================================
+
+Beta-VAE disentanglement ratio (max/min latent var): 0.9x
+
+
 CVAE + K-Means                       0.333   0.075   0.008   0.140
 =================================================================
